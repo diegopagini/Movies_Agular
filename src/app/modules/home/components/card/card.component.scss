@@ -2,3 +2,12 @@
   height: 100px;
   overflow: hidden;
 }
+
+.img {
+  max-height: 400px;
+}
+
+.mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+}

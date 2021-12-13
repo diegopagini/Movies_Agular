@@ -1,0 +1,10 @@
+<ng-container *ngIf="data">
+  <mat-paginator
+    [length]="data.total_pages"
+    [pageSize]="data.results?.length"
+    [pageSizeOptions]="[20]"
+    aria-label="Select page"
+    (page)="onChange($event)"
+  >
+  </mat-paginator>
+</ng-container>

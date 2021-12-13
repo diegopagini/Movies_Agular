@@ -1,0 +1,8 @@
+@import "../../../styles/base";
+
+.spinner {
+  height: 100%;
+  min-height: 70vh;
+  width: 100%;
+  @include center;
+}

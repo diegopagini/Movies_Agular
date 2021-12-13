@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { Observable } from 'rxjs';
-import { Movie } from 'src/app/core/models/movie.model';
+import { Movie } from 'src/app/modules/home/models/movie.model';
 import { ApiService } from '../../services/api.service';
 
 @Component({
@@ -15,5 +16,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.movies$ = this.apiService.getMovies();
+  }
+
+  changePage(event: PageEvent) {
+    this.apiService.page++;
+    this.movies$ = this.apiService.getMovies(this.apiService.page.toString());
   }
 }

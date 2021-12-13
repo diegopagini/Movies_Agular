@@ -1,9 +1,20 @@
-<section *ngIf="movies$ | async as movies" class="grid">
-  <ng-container *ngFor="let result of movies.results">
-    <app-card [movie]="result"></app-card>
-  </ng-container>
-</section>
+<ng-container *ngIf="movies$ | async as movies; else loading">
+  <section class="grid">
+    <ng-container *ngFor="let result of movies.results">
+      <app-card [movie]="result"></app-card>
+    </ng-container>
+  </section>
+  <section class="paginator">
+    <app-paginator
+      [data]="movies"
+      (pageEmitter)="changePage($event)"
+    ></app-paginator>
+  </section>
+</ng-container>
 
-<!-- [] input -->
-<!-- () output -->
-<!-- [(ngModel)]="name" -->
+<ng-template #loading>
+  <app-spinner></app-spinner>
+</ng-template>
+
+<!-- [input] -->
+<!-- (output) -->

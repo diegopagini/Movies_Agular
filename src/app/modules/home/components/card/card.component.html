@@ -3,7 +3,12 @@
     <mat-card-title>{{ movie.original_title }}</mat-card-title>
     <mat-card-subtitle>{{ movie.title }}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image [src]="movie.poster_path | image" [alt]="movie.title" />
+  <img
+    class="img"
+    mat-card-image
+    [src]="movie.poster_path | image"
+    [alt]="movie.title"
+  />
   <mat-card-content>
     <h3>{{ movie.release_date | date }}</h3>
     <p>
@@ -12,14 +17,10 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="warn">
+    <button mat-icon-button color="warn">
       <mat-icon aria-hidden="false">favorite</mat-icon>
     </button>
-    <button
-      mat-raised-button
-      color="primary"
-      [routerLink]="['/movie', movie.id]"
-    >
+    <button mat-raised-button color="primary" (click)="handleClick(movie)">
       Más info
     </button>
   </mat-card-actions>

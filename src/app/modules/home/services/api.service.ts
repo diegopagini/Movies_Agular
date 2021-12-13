@@ -1,15 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Movie } from 'src/app/core/models/movie.model';
+import { delay, Observable } from 'rxjs';
+import { Movie } from 'src/app/modules/home/models/movie.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
+  page = 0;
+
   constructor(private http: HttpClient) {}
 
-  getMovies(): Observable<Movie> {
-    return this.http.get<Movie>(`/movie/now_playing?`);
+  getMovies(page: string = '1'): Observable<Movie> {
+    return this.http
+      .get<Movie>(`/movie/now_playing?page=${page}`)
+      .pipe(delay(1500));
   }
 }

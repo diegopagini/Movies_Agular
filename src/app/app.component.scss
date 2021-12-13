@@ -1,5 +1,6 @@
 .router {
   min-height: calc(100vh - 112px);
+  padding: 0 2rem;
   @media (min-width: 991px) {
     min-height: calc(100vh - 128px);
   }
