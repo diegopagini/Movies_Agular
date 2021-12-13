@@ -1,0 +1,26 @@
+<mat-card *ngIf="movie">
+  <mat-card-header class="header">
+    <mat-card-title>{{ movie.original_title }}</mat-card-title>
+    <mat-card-subtitle>{{ movie.title }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="movie.poster_path | image" [alt]="movie.title" />
+  <mat-card-content>
+    <h3>{{ movie.release_date | date }}</h3>
+    <p>
+      {{ movie.overview | slice: 0:100 }}
+      <span *ngIf="movie.overview.length > 100">...</span>
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="warn">
+      <mat-icon aria-hidden="false">favorite</mat-icon>
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      [routerLink]="['/movie', movie.id]"
+    >
+      Más info
+    </button>
+  </mat-card-actions>
+</mat-card>

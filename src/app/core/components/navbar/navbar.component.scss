@@ -1,0 +1,6 @@
+@import "../../../styles/base";
+
+.navbar {
+  color: $color-primary;
+  @include center;
+}

@@ -1,0 +1,9 @@
+<section *ngIf="movies$ | async as movies" class="grid">
+  <ng-container *ngFor="let result of movies.results">
+    <app-card [movie]="result"></app-card>
+  </ng-container>
+</section>
+
+<!-- [] input -->
+<!-- () output -->
+<!-- [(ngModel)]="name" -->
