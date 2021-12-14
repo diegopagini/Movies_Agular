@@ -27,6 +27,11 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'create',
+    loadChildren: () =>
+      import('./modules/create/create.module').then((m) => m.CreateModule),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./modules/not-found/not-found.module').then(

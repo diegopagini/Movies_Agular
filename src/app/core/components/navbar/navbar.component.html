@@ -1,6 +1,8 @@
 <mat-toolbar color="primary">
   <div class="navbar">
     <span routerLink="/home" routerLinkActive="active">My Application</span>
+    <span routerLink="/create" routerLinkActive="active">Crear</span>
+
     <span
       [matBadge]="moviesLength$ | async"
       matBadgeOverlap="false"

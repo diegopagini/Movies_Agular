@@ -1,0 +1,8 @@
+@import "../../../../styles/base";
+
+.form {
+  height: 100%;
+  padding: 3rem;
+
+  @include center;
+}

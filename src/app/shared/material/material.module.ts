@@ -6,6 +6,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 
 const modules = [
   MatToolbarModule,
@@ -15,6 +19,10 @@ const modules = [
   MatIconModule,
   MatPaginatorModule,
   MatBadgeModule,
+  MatFormFieldModule,
+  MatDatepickerModule,
+  MatSelectModule,
+  MatInputModule,
 ];
 
 @NgModule({
