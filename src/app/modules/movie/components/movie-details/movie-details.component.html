@@ -1,1 +1,29 @@
-<p>movie-details works!</p>
+<mat-card class="card" *ngIf="movie">
+  <mat-card-header>
+    <mat-card-title>{{ movie.title | uppercase }}</mat-card-title>
+    <mat-card-subtitle>{{ movie.tagline }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="movie.backdrop_path | image" [alt]="movie.title" />
+  <mat-card-content>
+    <p>
+      {{ movie.overview }}
+    </p>
+    <p>
+      Homepage: <a [href]="movie.homepage">{{ movie.homepage }}</a>
+    </p>
+    <p>
+      Generos:
+      <button
+        mat-raised-button
+        color="primary"
+        class="badge"
+        *ngFor="let genre of movie.genres"
+      >
+        {{ genre.name | uppercase }}
+      </button>
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button color="warn" mat-raised-button routerLink="/home">Volver</button>
+  </mat-card-actions>
+</mat-card>

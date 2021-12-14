@@ -5,7 +5,7 @@ import {
   Router,
   RouterStateSnapshot,
 } from '@angular/router';
-import { MovieService } from '../modules/movie/services/movie.service';
+import { MovieService } from '../../modules/movie/services/movie.service';
 
 @Injectable({
   providedIn: 'root',

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MovieGuard } from './core/guards.guard';
+import { MovieGuard } from './core/guards/guards.guard';
 
 const routes: Routes = [
   {

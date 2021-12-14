@@ -10,7 +10,7 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  movies$!: Observable<Movie>;
+  movies$: Observable<Movie>;
 
   constructor(private apiService: ApiService) {}
 
