@@ -10,6 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatNativeDateModule } from '@angular/material/core';
 
 const modules = [
   MatToolbarModule,
@@ -23,6 +25,8 @@ const modules = [
   MatDatepickerModule,
   MatSelectModule,
   MatInputModule,
+  MatSlideToggleModule,
+  MatNativeDateModule,
 ];
 
 @NgModule({

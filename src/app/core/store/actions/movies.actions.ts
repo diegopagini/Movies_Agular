@@ -5,3 +5,8 @@ export const saveFavourite = createAction(
   '[Movie Card] Save favorite',
   props<{ payload: Result }>()
 );
+
+export const createMovie = createAction(
+  '[Create Movie] Create a movie',
+  props<{ payload: any }>()
+);

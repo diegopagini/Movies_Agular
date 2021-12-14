@@ -1,11 +1,54 @@
-<form class="form">
-  <mat-form-field color="warn" class="example-full-width" appearance="fill">
-    <mat-label>Favorite food</mat-label>
-    <input matInput placeholder="Ex. Pizza" value="Sushi" />
+<form
+  class="form"
+  autocomplete="off"
+  [formGroup]="form"
+  (ngSubmit)="handleSubmit()"
+>
+  <mat-form-field appearance="fill">
+    <mat-label>Título</mat-label>
+    <input matInput formControlName="title" />
+    <mat-error *ngIf="titleValid"> Este campo es requerido </mat-error>
+    <mat-error *ngIf="titleMinLength"> Mínimo 6 caracteres </mat-error>
   </mat-form-field>
 
-  <mat-form-field class="example-full-width" appearance="outline">
-    <mat-label>Leave a comment</mat-label>
-    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+  <mat-form-field appearance="fill">
+    <mat-label>Género</mat-label>
+    <mat-select formControlName="genre">
+      <mat-option *ngFor="let genre of genres" [value]="genre">{{
+        genre
+      }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="genreInvalid"> Este campo es requerido </mat-error>
   </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Sinopsis</mat-label>
+    <textarea formControlName="overview" rows="10" matInput></textarea>
+    <mat-hint align="end">
+      {{ form.get("overview")?.value.length }} / 100</mat-hint
+    >
+    <mat-error *ngIf="overviewValid"> Este campo es requerido </mat-error>
+    <mat-error *ngIf="overviewMinLength"> Mínimo 100 caracteres </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Fecha de estreno</mat-label>
+    <input formControlName="created" matInput [matDatepicker]="picker" />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="createdInvalid"> Este campo es requerido </mat-error>
+  </mat-form-field>
+
+  <mat-slide-toggle formControlName="age">+18 ?</mat-slide-toggle>
+
+  <div class="btn-container">
+    <button
+      color="primary"
+      [disabled]="form.invalid"
+      type="submit"
+      mat-raised-button
+    >
+      Agregar
+    </button>
+  </div>
 </form>
