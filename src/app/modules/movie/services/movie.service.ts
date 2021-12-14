@@ -15,7 +15,7 @@ export class MovieService {
     return this.http.get<Details>(`/movie/${id}`);
   }
 
-  setIsload() {
+  setIsload(): void {
     this.isLoad = true;
   }
 

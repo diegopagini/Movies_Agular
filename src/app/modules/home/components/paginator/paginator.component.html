@@ -1,4 +1,4 @@
-<ng-container *ngIf="data">
+<ng-container *ngIf="data$ | async as data">
   <mat-paginator
     [length]="data.total_pages"
     [pageSize]="data.results?.length"

@@ -1,18 +1,25 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { Observable } from 'rxjs';
 import { Movie } from '../../models/movie.model';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-paginator',
   templateUrl: './paginator.component.html',
   styleUrls: ['./paginator.component.scss'],
 })
-export class PaginatorComponent {
-  @Input() data: Movie | undefined;
+export class PaginatorComponent implements OnInit {
+  data$!: Observable<Movie>;
   @Output() pageEmitter = new EventEmitter<PageEvent>();
 
+  constructor(private apiService: ApiService) {}
+
+  ngOnInit(): void {
+    this.data$ = this.apiService.getMovies();
+  }
+
   onChange(event: PageEvent) {
-    // console.log(event);
     this.pageEmitter.emit(event);
   }
 }

@@ -4,17 +4,12 @@
       <app-card [movie]="result"></app-card>
     </ng-container>
   </section>
-  <section class="paginator">
-    <app-paginator
-      [data]="movies"
-      (pageEmitter)="changePage($event)"
-    ></app-paginator>
-  </section>
 </ng-container>
+
+<section class="paginator">
+  <app-paginator (pageEmitter)="changePage($event)"></app-paginator>
+</section>
 
 <ng-template #loading>
   <app-spinner></app-spinner>
 </ng-template>
-
-<!-- [input] -->
-<!-- (output) -->

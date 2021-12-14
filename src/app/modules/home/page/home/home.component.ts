@@ -19,7 +19,13 @@ export class HomeComponent implements OnInit {
   }
 
   changePage(event: PageEvent) {
-    this.apiService.page++;
-    this.movies$ = this.apiService.getMovies(this.apiService.page.toString());
+    let page: number;
+
+    if (event.pageIndex <= 0) {
+      page = 1;
+    } else {
+      page = event.pageIndex;
+    }
+    this.movies$ = this.apiService.getMovies(page.toString());
   }
 }

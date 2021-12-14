@@ -1,1 +1,3 @@
-<div *ngIf="movie$ | async as movie">{{ movie | json }}</div>
+<ng-container *ngIf="movie$ | async">
+  <app-movie-details></app-movie-details>
+</ng-container>
