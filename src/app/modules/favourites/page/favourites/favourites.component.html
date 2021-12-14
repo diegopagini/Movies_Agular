@@ -1,0 +1,7 @@
+<ng-container *ngIf="movies$ | async as movies">
+  <section class="grid">
+    <ng-container *ngFor="let movie of movies">
+      <app-card [movie]="movie" [isFavourite]="true"></app-card>
+    </ng-container>
+  </section>
+</ng-container>

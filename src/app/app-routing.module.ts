@@ -20,6 +20,13 @@ const routes: Routes = [
     canActivate: [MovieGuard],
   },
   {
+    path: 'favourites',
+    loadChildren: () =>
+      import('./modules/favourites/favourites.module').then(
+        (m) => m.FavouritesModule
+      ),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./modules/not-found/not-found.module').then(

@@ -1,3 +1,13 @@
 <mat-toolbar color="primary">
-  <span routerLink="home" routerLinkActive="active">My Application</span>
+  <div class="navbar">
+    <span routerLink="/home" routerLinkActive="active">My Application</span>
+    <span
+      [matBadge]="moviesLength$ | async"
+      matBadgeOverlap="false"
+      matBadgeColor="warn"
+      routerLink="/favourites"
+      routerLinkActive="active"
+      >Favorites</span
+    >
+  </div>
 </mat-toolbar>

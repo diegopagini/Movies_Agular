@@ -11,6 +11,8 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
+import { MoviesReducer } from './core/store/reducers/movies.reducer';
+import { MoviesEffect } from './core/store/effects/movies.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,12 +22,15 @@ import { EffectsModule } from '@ngrx/effects';
     ComponentsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    StoreModule.forRoot({}, {}),
+    // Store
+    StoreModule.forRoot({ app: MoviesReducer }),
+    // Effects
+    EffectsModule.forRoot([MoviesEffect]),
+    // Devtools
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forRoot([]),
   ],
   bootstrap: [AppComponent],
   providers: [

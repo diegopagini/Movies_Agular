@@ -16,8 +16,8 @@
       <span *ngIf="movie.overview.length > 100">...</span>
     </p>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-icon-button color="warn">
+  <mat-card-actions *ngIf="!isFavourite">
+    <button mat-icon-button color="warn" (click)="saveFavourite(movie)">
       <mat-icon aria-hidden="false">favorite</mat-icon>
     </button>
     <button mat-raised-button color="primary" (click)="handleClick(movie)">
