@@ -28,8 +28,8 @@ export class FormComponent implements OnInit {
       title: ['', [Validators.required, Validators.minLength(6)]],
       genre: ['', [Validators.required]],
       overview: ['', [Validators.required, Validators.minLength(100)]],
-      created: ['', [Validators.required]],
-      age: [false],
+      created: [new Date(), [Validators.required]],
+      adult: [false],
     });
   }
 

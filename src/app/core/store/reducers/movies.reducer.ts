@@ -18,8 +18,8 @@ export const MoviesReducer = createReducer(
     ...state,
     movies: [...state.movies, action.payload],
   })),
-  on(createMovie, (state, action) => ({
+  on(createMovie, (state, { payload }) => ({
     ...state,
-    customMovies: [...state.customMovies, action.payload],
+    customMovies: [...state.customMovies, payload],
   }))
 );

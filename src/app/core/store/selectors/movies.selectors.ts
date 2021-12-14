@@ -11,3 +11,8 @@ export const selectLoading = createSelector(
   selectMovieState,
   (app) => app.loading
 );
+
+export const selectCustomMovies = createSelector(
+  selectMovieState,
+  (app) => app.customMovies
+);

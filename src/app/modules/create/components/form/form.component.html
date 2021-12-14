@@ -25,7 +25,7 @@
     <mat-label>Sinopsis</mat-label>
     <textarea formControlName="overview" rows="10" matInput></textarea>
     <mat-hint align="end">
-      {{ form.get("overview")?.value.length }} / 100</mat-hint
+      {{ form.get("overview")?.value?.length }} / 100</mat-hint
     >
     <mat-error *ngIf="overviewValid"> Este campo es requerido </mat-error>
     <mat-error *ngIf="overviewMinLength"> Mínimo 100 caracteres </mat-error>
@@ -39,7 +39,7 @@
     <mat-error *ngIf="createdInvalid"> Este campo es requerido </mat-error>
   </mat-form-field>
 
-  <mat-slide-toggle formControlName="age">+18 ?</mat-slide-toggle>
+  <mat-slide-toggle formControlName="adult">+18 ?</mat-slide-toggle>
 
   <div class="btn-container">
     <button

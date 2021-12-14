@@ -4,6 +4,7 @@ import { Action } from '@ngrx/store';
 import { map, Observable, tap } from 'rxjs';
 import { createMovie, saveFavourite } from '../actions/movies.actions';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class MoviesEffect {
@@ -40,6 +41,8 @@ export class MoviesEffect {
             showConfirmButton: false,
             timer: 2000,
           });
+
+          this.router.navigate(['/home']);
         })
       ),
     {
@@ -47,5 +50,5 @@ export class MoviesEffect {
     }
   );
 
-  constructor(private action$: Actions) {}
+  constructor(private action$: Actions, private router: Router) {}
 }

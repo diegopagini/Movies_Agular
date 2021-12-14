@@ -1,6 +1,6 @@
-<ng-container *ngIf="movies$ | async as movies; else loading">
+<ng-container *ngIf="two$ | async as movies; else loading">
   <section class="grid">
-    <ng-container *ngFor="let result of movies.results">
+    <ng-container *ngFor="let result of movies">
       <app-card [movie]="result"></app-card>
     </ng-container>
   </section>
