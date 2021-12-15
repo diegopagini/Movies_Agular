@@ -1,7 +1,13 @@
 <ng-container *ngIf="movies$ | async as movies">
-  <section class="grid">
+  <section class="grid" *ngIf="movies.length > 1; else noMovies">
     <ng-container *ngFor="let movie of movies">
       <app-card [movie]="movie" [isFavourite]="true"></app-card>
     </ng-container>
   </section>
 </ng-container>
+
+<ng-template #noMovies>
+  <section class="no-movies">
+    <p>No hay películas agregadas a favoritas...</p>
+  </section>
+</ng-template>

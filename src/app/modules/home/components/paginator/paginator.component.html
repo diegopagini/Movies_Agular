@@ -1,6 +1,6 @@
 <ng-container *ngIf="data$ | async as data">
   <mat-paginator
-    [length]="data.total_pages"
+    [length]="data.total_results"
     [pageSize]="data.results?.length"
     [pageSizeOptions]="[20]"
     aria-label="Select page"

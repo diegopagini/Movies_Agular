@@ -12,20 +12,15 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  movies$: Observable<Movie>;
-  two$: Observable<any>;
+  movies$: Observable<any>;
 
   constructor(private apiService: ApiService, private store: Store) {}
 
   ngOnInit(): void {
-    this.movies$ = this.apiService.getMovies();
-
-    this.two$ = combineLatest(
+    this.movies$ = combineLatest(
       this.apiService.getMovies().pipe(pluck('results')),
       this.store.select(selectCustomMovies)
     ).pipe(map(([s1, s2]) => [...s1, ...s2]));
-
-    // two$.subscribe(console.log);
   }
 
   changePage(event: PageEvent) {
@@ -36,6 +31,9 @@ export class HomeComponent implements OnInit {
     } else {
       page = event.pageIndex;
     }
-    this.movies$ = this.apiService.getMovies(page.toString());
+    this.movies$ = combineLatest(
+      this.apiService.getMovies(page.toString()).pipe(pluck('results')),
+      this.store.select(selectCustomMovies)
+    ).pipe(map(([s1, s2]) => [...s1, ...s2]));
   }
 }

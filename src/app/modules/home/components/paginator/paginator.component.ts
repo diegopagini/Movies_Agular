@@ -17,6 +17,7 @@ export class PaginatorComponent implements OnInit {
 
   ngOnInit(): void {
     this.data$ = this.apiService.getMovies();
+    this.data$.subscribe((data) => console.log('data:', data));
   }
 
   onChange(event: PageEvent) {
