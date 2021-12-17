@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { StoreService } from 'src/app/core/services/store.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class FormComponent implements OnInit {
     'Animación',
     'Policial',
   ];
-
+  @ViewChild('createForm') createForm: NgForm;
   form: FormGroup;
 
   constructor(private fb: FormBuilder, private storeService: StoreService) {}
@@ -36,7 +36,7 @@ export class FormComponent implements OnInit {
   handleSubmit(): void {
     if (this.form.valid) {
       this.storeService.dispatchCreateMovie(this.form.value);
-      this.form.reset();
+      this.createForm.resetForm();
     } else {
       this.form.markAllAsTouched();
     }
